@@ -1,0 +1,1179 @@
+  html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%; /* Garante que o corpo da página ocupe toda a largura */
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/*@@@@@@@@@ @@@@@@@ topnav @@@@@@@@@ topnav @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@@@@@@@@@@ TOPNAV @@@@@@@@@@@ TOPNAV @@@@@@@@@@@@ TOPNAV @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+/* Estilando o topnav para garantir seu limite */
+.topnav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fcfcfc;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    max-width: 100%; /* Garante a mesma largura do conteúdo */
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+  }
+
+  /*@@@@@@@@ estilização dos links topnav @@@@@@@@@@@@@@@@@*/
+
+  /* Estilo dos links do topnav */
+.top-links a {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais moderna */
+  font-size: 17px; /* Tamanho maior para melhor legibilidade */
+  font-weight: 600; /* Deixar a fonte mais forte */
+  color: rgb(38, 129, 87); /* Cor do texto */
+  cursor: pointer;
+  text-transform: uppercase; /* Letras maiúsculas */
+  transition: color 0.3s, transform 0.3s ease; /* Suavizar a transição */
+}
+
+/* Efeito de hover no link */
+.top-links a:hover {
+  color: #006400; /* Cor de destaque no hover */
+  transform: scale(1.1); /* Efeito de aumento no hover */
+}
+
+
+  /*#### estilização dos links topnav end ##################*/
+
+  /* @@@@@@@ altura do topnav em telas acima de 600px @@@@@@@@@@@@@@@@*/
+
+  @media (min-width: 600px) {
+
+    .topnav{
+      height: 123px;
+    }
+    
+  }
+
+ 
+
+  /* ########### altura do topnav acima 600px end ######## topnav altura acima 600px end end #############*/
+ 
+  /* Estilo da logo */
+  .logo img {
+    max-height: 80px;
+    width: auto;
+  }
+
+  @media (min-width: 1024px){
+    .logo img{
+      margin-left: 70px;
+    }
+  }
+  
+
+/* Centralização dos links */
+.top-links {
+  display: flex;
+  justify-content: center; /* Centraliza os itens no eixo horizontal */
+  align-items: center; /* Garante o alinhamento vertical */
+  gap: 100px; /* Espaço entre os itens */
+  flex: 1; /* Garante que os links ocupem todo o espaço disponível */
+}
+
+  .top-links p {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: rgb(38, 129, 87);
+    cursor: pointer;
+  }
+  
+  .top-links p:hover {
+    color: #555;
+  }
+
+  /*@@@@@ links do topnav e dropdown sem estilos link @@@@@*/
+
+  /* Remove estilização padrão dos links */
+a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: inherit; /* Faz o link herdar a cor do texto ao redor */
+}
+
+/* Adicione estilo ao passar o mouse (opcional) */
+a:hover {
+  color: #333; /* Troque pela cor que quiser */
+  cursor: pointer; /* Indica que é clicável */
+}
+
+
+  /*### links do topnav sem estilo end ################*/
+  
+  /* Estilo do menu (ícone para dropdown) */
+  .menu img {
+    max-height: 40px; /* Tamanho do ícone */
+    width: auto;
+  }
+
+.menu {
+    display: none; /* Oculta o menu por padrão */
+    position: relative;
+  }
+  
+  /* Menu aparece apenas em telas menores */
+  @media (max-width: 768px) {
+    .menu {
+      display: block; /* Exibe o menu */
+    }
+  
+    .top-links {
+      display: none; /* Oculta links padrão */
+    }
+  }
+  
+  /* @@@@@@@@@@ DROPDOWN AND MENU @@@@@@@@@@@@*/
+  
+ /* Estilando o botão menu */
+ .menu button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  /* Ícone de menu */
+  .menu img {
+    max-height: 40px;
+    width: auto;
+  }
+  
+
+  /* Dropdown - Estilando */
+  .dropdown-content {
+    display: none; /* Ocultar inicialmente */
+    position: fixed; /* Usa o viewport da página como referência */
+    top: 215%; /* Centralizar verticalmente */
+    left: 50%; /* Centralizar horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para alinhar ao centro */
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 1000;
+    width: 150px;
+}
+
+/* @@@@@@@@@@   @@@@@Estilização dos links no dropdown @@@@@@@@*/
+.dropdown-content a {
+  display: block;
+  padding: 12px 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna também para o dropdown */
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s, background-color 0.3s ease; /* Transição suave */
+}
+
+/* Efeito de hover no link do dropdown */
+.dropdown-content a:hover {
+  background-color: #006400; /* Cor de fundo no hover */
+  color: #fff; /* Cor do texto ao passar o mouse */
+  border-radius: 4px; /* Borda arredondada */
+}
+
+/* Adicionando espaçamento entre os links do dropdown */
+.dropdown-content a:not(:last-child) {
+  margin-bottom: 10px; /* Distância entre os itens */
+}
+
+/* ####### estilização dos links topnav end ########## */
+
+.dropdown-content {
+  display: none; /* Ocultar inicialmente */
+}
+
+/* Quando ativo */
+.dropdown-content.active {
+  display: block;
+}
+
+  .dropdown-content p {
+    margin: 5px 0;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+
+  }
+  
+  .dropdown-content p:hover {
+    color: #555;
+  }
+  
+  
+  /*####### DROPDOWN AND MENU END ########*/
+
+  /* ########### TOPANV END topnav end ############## topnav end ########## topnav end########################
+  ######################## TOPNAV END ################## END TOPNAV ##########################################*/
+
+
+  /*@@@@@@@@@@@ DIV1 @@@@@@@@@@@@DIV 1 DIV 1 DIV1 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+  DIV1 @@@@@@@@@@@@@@@@@@@@@@ DIV1 @@@@@@@@@@@@@@@@@@@@ DIV1 @@@@@@@@ DIV1 @@@@@@@@@@@@@ DIV1 @@@@@@@@@@@@@@@*/
+
+ /* Estilo principal da div1 */
+.div1 {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Ocupa toda a altura da viewport */
+  overflow: hidden; /* Evita que o conteúdo extrapole a área */
+}
+
+/*@@@@@@@ ajuste altura div1 em telas diferentes tamanhos @@@@@@@@*/
+
+@media (min-width: 320px){
+
+.div1 {
+  position: relative;
+  width: 100%;
+  height: 95vh; /* Ocupa toda a altura da viewport */
+  overflow: hidden; /* Evita que o conteúdo extrapole a área */
+}
+
+}
+
+@media (min-width: 344px){
+
+  .div1 {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Ocupa toda a altura da viewport */
+    overflow: hidden; /* Evita que o conteúdo extrapole a área */
+  }
+  
+  }
+
+@media (min-width: 360px){
+
+  .div1 {
+    position: relative;
+    width: 100%;
+    height: 75vh; /* Ocupa toda a altura da viewport */
+    overflow: hidden; /* Evita que o conteúdo extrapole a área */
+  }
+  
+  }
+
+@media (min-width: 375px){
+
+  .div1 {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Ocupa toda a altura da viewport */
+    overflow: hidden; /* Evita que o conteúdo extrapole a área */
+  }
+  
+  }
+
+  @media (min-width: 390px){
+
+    .div1 {
+      position: relative;
+      width: 100%;
+      height: 78vh; /* Ocupa toda a altura da viewport */
+      overflow: hidden; /* Evita que o conteúdo extrapole a área */
+    }
+    
+    }
+  
+
+  @media (min-width: 414px){
+
+    .div1 {
+      position: relative;
+      width: 100%;
+      height: 80vh; /* Ocupa toda a altura da viewport */
+      overflow: hidden; /* Evita que o conteúdo extrapole a área */
+    }
+    
+    }
+    @media (min-width: 425px){
+
+      .div1 {
+        position: relative;
+        width: 100%;
+        height: 80vh; /* Ocupa toda a altura da viewport */
+        overflow: hidden; /* Evita que o conteúdo extrapole a área */
+      }
+      
+      }
+
+      @media (min-width: 430px){
+
+        .div1 {
+          position: relative;
+          width: 100%;
+          height: 80vh; /* Ocupa toda a altura da viewport */
+          overflow: hidden; /* Evita que o conteúdo extrapole a área */
+        }
+        
+        }
+
+        @media (min-width: 768px){
+
+          .div1 {
+            position: relative;
+            width: 100%;
+            height: 95vh; /* Ocupa toda a altura da viewport */
+            overflow: hidden; /* Evita que o conteúdo extrapole a área */
+          }
+          
+          }
+    
+  @media (min-width: 1024px){
+
+    .div1 {
+      position: relative;
+      width: 100%;
+      height: 100vh; /* Ocupa toda a altura da viewport */
+      overflow: hidden; /* Evita que o conteúdo extrapole a área */
+    }
+    
+    }
+
+
+/*#### ajuste altura div1 em telas diferentes tamanhos end ##################*/
+
+
+
+
+
+/*@@@@@@@ ajustes posição e tamanho textos para caber texto e botao na div1 @@@@@@@@@@@@@*/
+
+
+@media (min-width: 320px){
+
+  .textos-div1 {
+
+    margin-top: 20px;
+
+    
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 43px;
+  }
+  
+
+}
+
+@media (min-width: 344px){
+
+  .textos-div1 {
+    margin-top: -5px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 39px;
+  }
+  
+}
+
+
+@media (min-width: 360px){
+
+  .textos-div1 {
+    margin-top: -15px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 35px;
+  }
+  
+}
+
+
+@media (min-width: 375px){
+
+  .textos-div1 {
+    margin-top: 0px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 44px;
+  }
+  
+}
+
+@media (min-width: 390px){
+
+  .textos-div1 {
+    margin-top: -10px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 42px;
+  }
+  
+}
+
+
+@media (min-width: 412px){
+
+  .textos-div1 {
+    margin-top: -20px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 40px;
+  }
+  
+}
+
+
+
+@media (min-width: 414px){
+
+
+  .textos-div1 {
+    margin-top: 0px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 40px;
+  }
+  
+}
+
+
+@media (min-width: 425px){
+
+  .textos-div1 {
+    margin-top: 0px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 45px;
+  }
+  
+}
+
+
+
+
+@media (min-width: 430px){
+
+  .textos-div1 {
+    margin-top: -5px
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 39px;
+  }
+  
+}
+
+
+@media (min-width: 540px){
+
+  .textos-div1 {
+
+    margin-top: 0px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 45px;
+  }
+  
+}
+
+@media (min-width: 768px){
+
+  .textos-div1 {
+    margin-top: 20px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 55px;
+  }
+  
+}
+
+@media (min-width: 820px){
+
+  .textos-div1 {
+    margin-top: 25px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 59px;
+  }
+  
+}
+
+@media (min-width: 853px){
+
+  .textos-div1 {
+    margin-top: 30px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 64px;
+  }
+  
+}
+
+@media (min-width: 912px){
+
+  .textos-div1 {
+    margin-top: 30px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 59px;
+  }
+  
+}
+
+@media (min-width: 1024px){
+
+
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 70px;
+  }
+  
+}
+
+@media (min-width: 1280px){
+
+  .textos-div1 {
+    margin-top: 50px;
+   
+  }
+  
+  /* Ajuste para o texto */
+  .textos-div1 h2 {
+   font-size: 72px;
+  }
+  
+}
+
+
+
+
+
+
+
+/*#### ajustes posição e tamanho textos para caber texto e botao na div1 end ############*/
+
+
+
+
+/* Container principal */
+.div1-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Garante que o container ocupe toda a altura */
+}
+
+
+/* Fundo com o vídeo */
+.background {
+  position: absolute; /* Muda de fixed para absolute para não ocupar toda a tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Coloca o vídeo atrás do texto */
+  overflow: hidden;
+}
+
+
+.background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(90%); /* Reduz o brilho para 50% */
+}
+
+
+
+
+  /* Camada de sobreposição */
+  .overlay {
+    position: absolute; /* Absoluto em relação à div1 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Cor preta com transparência */
+    z-index: 0; /* Coloca abaixo do texto, mas acima do vídeo */
+  }
+
+
+/* Estilo do texto */
+/* Ajustando o texto e o botão na mesma coluna */
+.textos-div1 {
+  position: relative;
+  z-index: 1;
+  display: flex; /* Habilita o uso de flexbox */
+  flex-direction: column; /* Alinha os itens em uma coluna */
+  align-items: center; /* Centraliza os itens horizontalmente */
+  justify-content: center; /* Centraliza os itens verticalmente */
+  height: 100%; /* Ocupa toda a altura */
+  text-align: center;
+  color: #fff;
+  font-size: 3rem;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  padding: 0 20px; /* Espaçamento lateral para telas menores */
+}
+
+/* Ajuste para o texto */
+.textos-div1 h2 {
+  margin: 0; /* Remove margens padrão */
+}
+
+
+  /* @@@@@@@@@ CONFIGURAÇÕES BTN-CONTATO E FIX CENTER @@@@@@@@@@@@@@@*/
+
+ /* Ajustes para o botão estar abaixo do título */
+.fix-center {
+  display: flex;  /* Habilita o uso de flexbox */
+  flex-direction: column; /* Alinha os elementos na vertical */
+  justify-content: center; /* Alinha os itens no centro */
+  align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+.btn-contato {
+  margin-top: 20px; /* Adiciona espaço entre o título e o botão */
+}
+
+/* Ajustando o botão */
+.btn-contato button {
+  background-color: #1c794c; /* Verde musgo */
+  color: #ffeedc; /* Amarelo areia claro */
+  font-size: 19px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px solid #fffacd; /* Um tom mais claro para o contorno */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transição para hover */
+  margin-top: 20px; /* Adiciona espaço entre o título e o botão */
+}
+
+.btn-contato button:hover {
+  background-color: #6b8e23; /* Verde musgo mais vibrante */
+  color: #fffacd; /* Amarelo mais claro */
+  transform: scale(1.05); /* Efeito de zoom */
+}
+
+
+  /*####### BTN CONTATOS E FIX CENTER ###### END BTN CONTATOS E FIX CENTER #########*/
+
+
+/* Responsividade: Ajustes em telas menores */
+@media (max-width: 768px) {
+  .textos-div1 {
+    font-size: 2rem;
+  }
+}
+
+  /*############## div1 end DIV 1 END #####################################################################
+  ############## DIV1 END ######################### DIV1 END ################# DIV1 END ###################*/
+
+
+
+
+  /*@@@@@@@@ DIV MSG @@@@@ DIV MSG @@@@@@ DIV MSG @@@@@@@@@@@@@@@@@@@@@ dIV MSG @@@@@@@@@@@@@@@@*/
+
+  .msg {
+    background-color: #1c794c;
+    color: #fffacd;
+    font-size: 38px;
+    text-align: center;
+    font-style: italic;
+    height: 200px;
+    
+  
+    /* Centralização do conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* Remover margens automáticas que podem criar o espaço */
+    margin: 0; 
+    padding: 0; 
+  }
+
+
+  .msg p{
+    margin: 150px;
+  }
+
+  @media (min-width: 320px){
+
+    .msg p{
+
+      font-size: 22px;
+      margin: 10px;
+
+    }
+
+  }
+
+  @media (min-width: 600px){
+
+.msg p{
+
+  font-size: 24px;
+  margin: 20px;
+
+}
+
+  }
+
+  @media (min-width: 1024px){
+
+    .msg p{
+      font-size: 30px;
+      margin: 30px;
+    }
+
+  }
+
+  /*#### DIV MSG END ######### DIV MSG END ####### DIV MSG END #######################
+  ################ END DIV MSG ############################################*/
+
+
+
+
+  /* @@@@@ porfifolio @@@@@@@@ portifolio @@@@@@ portifolio @@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+/* Estilo da Div Portifolio */
+.portifolio {
+  background-color: #fdf5e6; /* Cor areia creme claro */
+  padding: 20px;
+  text-align: center; /* Centraliza o conteúdo */
+}
+
+/* Estilo do Título */
+.portifolio .titulo p {
+  font-family: "Cursive", Georgia, 'Times New Roman', Times, serif; /* Fonte bonita e desenhada */
+  color: #2f5050; /* Verde escuro musgo */
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* Container dos Quadrados */
+.portif-container {
+  display: flex;
+  justify-content: center; /* Centraliza os itens no eixo horizontal */
+  gap: 50px; /* Espaço entre os quadrados */
+  flex-wrap: wrap; /* Permite quebra em telas menores */
+}
+
+/* Estilo dos Quadrados */
+.quadrado {
+  width: 416px;   /* padrão 832px por 520px na metade */
+  height: 260px;    /* padrão 832px por 520px na metade */
+  background-color: #dcdcdc; /* Cor cinza clara para destacar os quadrados */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* Indica que é clicável */
+  border: 2px solid #2f4f4f; /* Borda verde escuro musgo */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quadrado:hover {
+  transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagem dentro dos Quadrados */
+.quadrado img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* Responsividade para Telas Pequenas */
+@media (max-width: 600px) {
+  .portif-container {
+    flex-direction: column; /* Quadrados ficam um embaixo do outro */
+    align-items: center; /* Centraliza os quadrados no eixo horizontal */
+    gap: 10px; /* Ajusta o espaço entre os quadrados */
+  }
+
+  .quadrado {
+    width: 90%; /* Ajusta a largura para 90% da tela */
+    max-width: 250px; /* Garante que o tamanho máximo seja 250px */
+    height: auto; /* Altura proporcional à largura */
+  }
+
+  .quadrado img {
+    width: 100%; /* Garante que a imagem ocupe toda a largura do quadrado */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+}
+
+
+  /* ######### portifolio ######## ######### portifolio ################# portifolio ######## */
+
+
+  /*@@@@@@@ div msg1 @@@@@@@@@@@@@ div msg1 @@@@@@@@@ div msg1 @@@@@@@2*/
+
+  .msg1 {
+    background-color: #1d7979;
+    color: #fffacd;
+    font-size: 38px;
+    text-align: center;
+    font-style: italic;
+    height: 200px;
+    
+  
+    /* Centralização do conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    /* Remover margens automáticas que podem criar o espaço */
+    margin: 0; 
+    padding: 0; 
+  }
+
+
+  .msg1 p{
+    margin: 150px;
+  }
+
+  @media (min-width: 320px){
+
+    .msg1 p{
+
+      font-size: 22px;
+      margin: 10px;
+
+    }
+
+  }
+
+  @media (min-width: 600px){
+
+.msg1 p{
+
+  font-size: 24px;
+  margin: 20px;
+
+}
+
+  }
+
+  @media (min-width: 1024px){
+
+    .msg1 p{
+      font-size: 30px;
+      margin: 30px;
+    }
+
+  }
+
+  /*####### div msg1 end ####### div msg1 end ######### div msg1 end ###### div msg1 end######*/
+
+
+
+  /*@@@@@@ div about @@@@@@ div about @@@@@@ div about @@@@@@@@@@*/
+
+/* Container principal */
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0; /* Remove qualquer espaçamento vertical */
+  background-color: #f9f9f9;
+}
+
+.about-container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  flex-wrap: wrap; /* Permite reorganizar os elementos em telas menores */
+  box-sizing: border-box; /* Inclui margens e bordas no cálculo */
+  padding: 0 10px; /* Adiciona espaçamento horizontal */
+}
+
+
+/*@@@2 margem da div about em telas diferentes @@@@@@@@@@@@@*/
+
+@media (min-width: 320px){
+
+  .about-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+  }
+
+}
+
+@media (min-width: 768px){
+
+  .about-container {
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+  }
+
+}
+
+
+/*### margem da div about em telas diferentes end #########*/
+
+
+
+
+/* Estilo da seção esquerda */
+.about-left {
+  position: relative;
+  flex: 1;
+  width: 50%;
+  background-image: url('./img/bg-1.jpg');
+  background-size: cover;
+  background-position: left;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  height: 500px;
+  margin: 10px; /* Adiciona margens em todos os lados */
+  padding: 0; /* Mantém o padding zerado */
+  box-sizing: border-box;
+}
+
+
+
+.about-left p {
+  position: relative;
+  z-index: 1; /* Garante que o texto fique acima do fundo */
+  font-size: 3.2rem;
+  font-weight: normal;
+  background-color: rgba(255, 255, 255, 0.4); /* Fundo semitransparente no texto */
+  padding: 10px 20px; /* Espaçamento ao redor do texto */
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+/* Destaque para palavras específicas */
+.highlight {
+  font-weight: normal; /* Deixa o texto em negrito */
+  color: #006400; /* Cor verde escuro */
+  font-size: 1.4rem; /* Aumenta um pouco o tamanho da fonte */
+  text-transform: uppercase; /* Deixa o texto em letras maiúsculas */
+}
+
+
+/* Estilo da seção direita */
+.about-right {
+  flex: 1; /* Ocupa metade do espaço */
+  width: 50%; /* Garante que ocupa metade do contêiner */
+  display: flex;
+  flex-direction: column; /* Disposição vertical */
+  justify-content: center; /* Centraliza verticalmente o conteúdo */
+  align-items: center; /* Centraliza horizontalmente o conteúdo */
+  padding: 20px; /* Espaçamento interno */
+  text-align: center; /* Centraliza o texto */
+  box-sizing: border-box; /* Inclui padding e border no cálculo de largura */
+}
+
+.about-right p {
+  font-size: 1.4rem;
+  line-height: 1.6; /* Espaçamento entre linhas */
+  color: #333; /* Cor do texto */
+  max-width: 500px; /* Limita a largura do parágrafo */
+  margin-bottom: 20px; /* Espaçamento entre os parágrafos */
+  text-align: justify;
+}
+
+/* Responsividade: Ajustes em telas menores */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column; /* Empilha as divisões */
+  }
+
+  .about-left {
+    width: calc(100% - 40px); /* Reduz a largura para considerar as margens */
+    margin: 20px; /* Mantém a margem ao redor */
+    height: 200px; /* Altura menor no mobile */
+    background-attachment: scroll; /* Corrige o comportamento de fixação */
+  }
+
+  .about-right {
+    width: 100%; /* Ocupa toda a largura */
+    padding: 10px 20px; /* Ajusta o espaçamento interno */
+  }
+
+  .about-left p {
+    position: relative;
+    z-index: 1; /* Garante que o texto fique acima do fundo */
+    font-size: 2.1rem;
+    font-weight: normal;
+    background-color: rgba(255, 255, 255, 0.3); /* Fundo semitransparente no texto */
+    padding: 10px 20px; /* Espaçamento ao redor do texto */
+    border-radius: 8px; /* Bordas arredondadas */
+  }
+
+}
+
+
+
+  /*##### div about end ####### div about end ######### div about end ######*/
+
+
+
+
+
+  /*@@@@ div info-contact @@@@@@@@@@@@ div info-contact @@@@@@@@ div info-contact @@@@@@@@@@@@@@@@@@@@*/
+
+  .info-contact {
+    background-color: black;
+    padding: 40px 20px; /* Aumenta o padding para expandir a altura */
+    color: white;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 335px; /* Define uma altura mínima para a div */
+  }
+  
+  
+  .info-contact-container {
+    max-width: 800px; /* Define um limite para o conteúdo */
+    margin: 0 auto; /* Centraliza o conteúdo */
+  }
+  
+  
+  .info-top {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo-info img {
+    width: 200px; /* Reduzindo o tamanho do logo */
+    margin: 0 auto;
+  }
+  
+  .contacts {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .contacts a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: white; /* Mantém o texto branco */
+    display: flex; /* Garante que imagem e texto fiquem alinhados */
+    align-items: center;
+    gap: 10px; /* Espaçamento entre a imagem e o texto */
+  }
+  
+  .contacts a:hover p {
+    text-decoration: underline; /* Adiciona sublinhado ao texto quando o mouse passa por cima */
+  }
+  
+  
+  .contacts div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .contacts img {
+    width: 30px; /* Ajuste o tamanho das imagens conforme necessário */
+  }
+  
+  .info-top::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    margin: 20px 0;
+  }
+  
+  .info-down {
+    text-align: center;
+    font-size: 14px;
+    color: white;
+  }
+
+
+/*@@@@@ links e iamgens do contacts um abaixo do outro em telas menores @@@@@@*/
+
+
+@media (max-width: 701px) {
+  .contacts {
+    flex-direction: column; /* Empilha os itens verticalmente */
+    gap: 20px; /* Define o espaçamento entre os itens */
+  }
+
+  .contacts a {
+    justify-content: center; /* Centraliza os links */
+    text-align: center; /* Centraliza o texto */
+  }
+
+  .contacts img {
+    margin: 0 auto; /* Centraliza as imagens */
+  }
+}
+
+
+
+/*### links e imagens do contacts um abaixo do outro em telas menores end ######### */
+
+  
+
+  /*###### div info-contact end ###### div info-contact end #########################################*/
